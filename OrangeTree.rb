@@ -7,12 +7,10 @@ class OrangeTree
     @oranges = 0
   end
 
-  def height
-    puts "The tree is #{@height} feet tall"
-  end
-
   def one_year_taller
+    puts "The tree is #{@height} feet tall"
     @height += 2
+    return @height
   end
 
   def one_year_pass
@@ -30,7 +28,6 @@ class OrangeTree
       puts "There are #{@oranges} oranges on your tree"
     end
   end
-
 
   def grow_oranges
     if @age > 3
@@ -52,7 +49,6 @@ class OrangeTree
 
   def circle_of_life
     while @age <= 10
-      height
       show_age
       one_year_taller
       grow_oranges
@@ -60,6 +56,7 @@ class OrangeTree
       pick_an_orange
       one_year_pass
       winter
+      puts ""
     end
     puts "Your tree has died away of old age."
   end
@@ -73,7 +70,6 @@ end
 class OrangeGrove
   attr_accessor :age, :treecount, :sum_oranges
 
-
   def initialize
     @age = 0
     @treecount = []
@@ -84,12 +80,11 @@ class OrangeGrove
     end
   end
 
-
   def count_all_the_oranges
     # write a for loop which pulls the oranges attribute of each tree, then adds them
     @treecount.each do |tree|
       tree.grow_oranges
-      puts "this year this tree made #{tree.oranges} oranges"
+      puts "During year #{tree.age}, this tree made #{tree.oranges} oranges"
       @sum_oranges += tree.oranges
       tree.winter
     end
@@ -114,16 +109,17 @@ class OrangeGrove
   end
 
   def grove_lifecycle
-    @treecount.each do |tree|
-      # could have done a while loop using the age attribute of either tree.age
-      # OR @age of the grove, but this seemed to reflect the nature of things more
-      while tree.age < 10
-        grove_ages
-        count_all_the_oranges
-      end
-    end
-
+     @treecount.each do |tree|
+       while tree.age < 10
+         grove_ages
+         count_all_the_oranges
+         puts ""
+       end
+     end
   end
 
 
 end
+
+ new_grove = OrangeGrove.new
+ new_grove.grove_lifecycle
