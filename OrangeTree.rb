@@ -2,7 +2,6 @@ class OrangeTree
   attr_accessor :height, :age, :oranges
 
   def initialize
-    #setting initial values for tree
     @age = 0
     @height = 0
     @oranges = 0
@@ -17,7 +16,6 @@ class OrangeTree
   end
 
   def one_year_pass
-    # function which ages tree one year
     @age += 1
   end
 
@@ -80,11 +78,12 @@ class OrangeGrove
     @age = 0
     @treecount = []
     @sum_oranges = 0
-    # to change num of trees in grove, adjust range below
+    # to change num of trees in grove, adjust range below, this should only make 4 trees
     (0..3).map do
       treecount.push(OrangeTree.new)
     end
   end
+
 
   def count_all_the_oranges
     # write a for loop which pulls the oranges attribute of each tree, then adds them
@@ -94,7 +93,14 @@ class OrangeGrove
       @sum_oranges += tree.oranges
       tree.winter
     end
-    puts "You have #{@sum_oranges} oranges in your grove this year"
+    puts "Your trees made #{@sum_oranges} oranges in your grove this year"
+    @sum_oranges = 0
+  end
+
+  def winter_grove
+    @treecount.each do |tree|
+      tree.winter
+    end
   end
 
   def grove_ages
@@ -109,6 +115,8 @@ class OrangeGrove
 
   def grove_lifecycle
     @treecount.each do |tree|
+      # could have done a while loop using the age attribute of either tree.age
+      # OR @age of the grove, but this seemed to reflect the nature of things more
       while tree.age < 10
         grove_ages
         count_all_the_oranges
