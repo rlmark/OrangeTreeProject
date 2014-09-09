@@ -74,10 +74,12 @@ class OrangeGrove
     @age = 0
     @treecount = []
     @sum_oranges = 0
-    # to change num of trees in grove, adjust range below, this should only make 4 trees
+
+    # this should only make 4 trees
     (0..3).map do
       treecount.push(OrangeTree.new)
     end
+
   end
 
   def count_all_the_oranges
@@ -121,5 +123,5 @@ class OrangeGrove
 
 end
 
- new_grove = OrangeGrove.new
- new_grove.grove_lifecycle
+# new_grove = OrangeGrove.new
+# new_grove.grove_lifecycle
