@@ -94,12 +94,6 @@ class OrangeGrove
     @sum_oranges = 0
   end
 
-  def winter_grove
-    @treecount.each do |tree|
-      tree.winter
-    end
-  end
-
   def grove_ages
     # create a function which alters the age of each of the trees
     @treecount.each do |tree|
@@ -123,5 +117,5 @@ class OrangeGrove
 
 end
 
-# new_grove = OrangeGrove.new
-# new_grove.grove_lifecycle
+ new_grove = OrangeGrove.new
+ new_grove.grove_lifecycle
